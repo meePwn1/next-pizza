@@ -6,10 +6,22 @@
 	.text-balance {
 		text-wrap: balance;
 	}
+	.overlay-off {
+		background-color: hsla(var(--overlay));
+		opacity: 0;
+		transition: opacity 0.5s ease-in-out;
+		visibility: hidden;
+	}
+	.overlay-on {
+		opacity: 1;
+		visibility: visible;
+	}
 }
 
 @layer base {
 	:root {
+		--overlay: 0, 0%, 0%, 0.6;
+		--layout: 22 100% 80%;
 		--background: 0 0% 100%;
 		--foreground: 20 14.3% 4.1%;
 		--card: 0 0% 100%;
@@ -29,7 +41,7 @@
 		--border: 20 5.9% 90%;
 		--input: 20 5.9% 90%;
 		--ring: 24.6 95% 53.1%;
-		--radius: 0.75rem;
+		--radius: 1rem;
 		--chart-1: 12 76% 61%;
 		--chart-2: 173 58% 39%;
 		--chart-3: 197 37% 24%;
@@ -69,7 +81,10 @@
 	* {
 		@apply border-border;
 	}
+	html {
+		@apply h-full;
+	}
 	body {
-		@apply bg-background text-foreground;
+		@apply h-full bg-background text-foreground;
 	}
 }

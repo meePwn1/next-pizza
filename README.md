@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next Pizza front-end
 
-## Getting Started
+## Основные ссылки
 
-First, run the development server:
+| название | ссылка                                                                                                                  |
+| :------- | :---------------------------------------------------------------------------------------------------------------------- |
+| Макет    | https://www.figma.com/design/DYM249pV7QA20RSX4lqqaI/Next-Pizza-(Copy)?node-id=0-1&node-type=canvas&t=sFHfA0s6GkF7mOwc-0 |
+
+## Основные используемые библиотеки
+
+| Библиотека                                               | Описание        |
+| :------------------------------------------------------- | :-------------- |
+| Next.js                                                  | React фрэймворк |
+| Redux Toolkit                                            | Стейт менеджер  |
+| [TailwindCSS](https://tailwindcss.com/docs/installation) | CSS фреймворк   |
+
+## Запуск проекта
+
+### Клонирование проекта:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+    git clone https://github.com/meePwn1/next-pizza.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Переход в директорию проекта:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+    cd next-pizza
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Локальный запуск проекта или запуск для разработки
 
-## Learn More
+#### Необходимое ПО:
 
-To learn more about Next.js, take a look at the following resources:
+- Node.js версия 20.17.0
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Установка зависимостей:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Необходимо убедиться, что версия node.js >= 20.0.0
 
-## Deploy on Vercel
+```bash
+    npm ci
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Запуск проекта для разработки:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+    npm run dev
+```
+
+### Запуск продакшн сборки проекта локально:
+
+```bash
+    npm run build && npm run start
+```
+
+## Правила работы с git
+
+### Сообщение при коммите
+
+Сообщение должно быть типа: `<type>(<optional scope>): <description>`
+
+Пример: `feat(package)!: add commit message linting`
+
+`!` Ставится после типа и скоупа перед двоеточием и обозначает, что в этом коммите какие-то критические изменения, например новые зависимости и тд.
+
+Type коммита может быть:
+
+- chore (уборка/чистка)
+- feat/feature(какое-то нововведение)
+- fix(фикс)
+- improve(улучшение)
+- revert(отмена изменений)
+
+Scope(необязательно) - место в котором вносили изменения, например - checklist
+
+Description: краткое описание того, что делали
+
+Более подробно можно посмотреть здесь: [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#summary) (есть русский)
+
+Для ленивых может помочь😊: [commitizen](https://github.com/commitizen-tools/commitizen?ysclid=latvteq5y3833041544)
+
+### Именование веток
+
+Название ветки должно быть типа: `:type/:number-:name`
+
+Пример: `feature/123-lint` или `feature/_-commit-lint`
+
+Если по какой-то причине у задачи нет номера вместо номера ставится `_`.
+
+Типы у веток:
+
+- chore (уборка/чистка)
+- feat/feature(какое-то нововведение)
+- fix(фикс)
+- improve(улучшение)
+
+name ветки должен быть **kebab-case** и состоять из 1-3 слов
+
+### Использование z-index
+
+Указания по использованию z-index:

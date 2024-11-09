@@ -1,6 +1,27 @@
 {
-	"extends": ["next/core-web-vitals", "next/typescript", "plugin:storybook/recommended"],
+	"extends": [
+		"next/core-web-vitals",
+		"next/typescript",
+		"plugin:storybook/recommended",
+		"plugin:perfectionist/recommended-alphabetical-legacy",
+		"plugin:prettier/recommended",
+		"plugin:@typescript-eslint/recommended",
+		"prettier"
+	],
+	"plugins": ["perfectionist", "@typescript-eslint"],
+	"parser": "@typescript-eslint/parser",
 	"rules": {
-		"@typescript-eslint/no-require-imports": "off"
-	}
+		"prettier/prettier": "error",
+		"perfectionist/sort-jsx-props": "error",
+		"@typescript-eslint/no-require-imports": "off",
+		"no-console": "warn",
+		"@typescript-eslint/no-unused-vars": [
+			"warn",
+			{
+				"varsIgnorePattern": "^_",
+				"argsIgnorePattern": "^_"
+			}
+		]
+	},
+	"ignorePatterns": ["node_modules/", ".next/", "out/"]
 }

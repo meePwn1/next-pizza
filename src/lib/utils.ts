@@ -1,6 +1,38 @@
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { type ClassValue, clsx } from 'clsx'
+import { twMerge } from 'tailwind-merge'
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+	return twMerge(clsx(inputs))
+}
+
+/**
+ * A function that merges React refs into one.
+ * Supports both functions and ref objects created using createRef() and useRef().
+ *
+ * Usage:
+ * ```tsx
+ * <div ref={mergeRefs(ref1, ref2, ref3)} />
+ * ```
+ *
+ * @param {(React.Ref<T> | undefined)[]} inputRefs Array of refs
+ * @returns {React.Ref<T> | React.RefCallback<T>} Merged refs
+ */
+export function mergeRefs<T>(...inputRefs: (React.Ref<T> | undefined)[]): React.Ref<T> | React.RefCallback<T> {
+	const filteredInputRefs = inputRefs.filter(Boolean)
+
+	if (filteredInputRefs.length <= 1) {
+		const firstRef = filteredInputRefs[0]
+
+		return firstRef || null
+	}
+
+	return function mergedRefs(ref) {
+		filteredInputRefs.forEach(inputRef => {
+			if (typeof inputRef === 'function') {
+				inputRef(ref)
+			} else if (inputRef) {
+				;(inputRef as React.MutableRefObject<null | T>).current = ref
+			}
+		})
+	}
 }
