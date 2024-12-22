@@ -3,7 +3,8 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev -p 3001",
+		"generate": "echo 'Generating a schema...' && node -r dotenv/config ./scripts/updateSchema.mjs",
+		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint --fix",
@@ -40,6 +41,7 @@
 		"@types/react-dom": "^18",
 		"@typescript-eslint/eslint-plugin": "^8.13.0",
 		"@typescript-eslint/parser": "^8.13.0",
+		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^8",
 		"eslint-config-next": "14.2.16",
 		"eslint-config-prettier": "^9.1.0",
@@ -52,5 +54,10 @@
 		"storybook": "^8.4.0",
 		"tailwindcss": "^3.4.1",
 		"typescript": "^5"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
 	}
 }
